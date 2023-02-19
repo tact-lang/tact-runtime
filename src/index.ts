@@ -3,4 +3,10 @@ export * from 'ton-core';
 export * from 'ton-crypto';
 
 // Executor
-export { ExecutorEngine, ExecutorArgs, ExecutorResult } from './executor/ExecutorEngine';
+export {
+    ExecutorEngine,
+    ExecutorGetArgs,
+    ExecutorGetResult,
+    getDefaultExecutorEngine,
+    setDefaultExecutorEngine
+} from './executor/ExecutorEngine';

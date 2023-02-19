@@ -1,12 +1,13 @@
 import { Cell, TupleItem, TupleReader } from 'ton-core';
 
-export type ExecutorArgs = {
+export type ExecutorGetArgs = {
+    method: string | number;
     code: Cell;
     data: Cell;
     stack: TupleItem[]
 }
 
-export type ExecutorResult = {
+export type ExecutorGetResult = {
     success: true;
     stack: TupleItem[];
     exitCode: number;
@@ -18,5 +19,22 @@ export type ExecutorResult = {
 };
 
 export type ExecutorEngine = {
-    execute(args: ExecutorArgs): Promise<ExecutorResult>;
+    get(args: ExecutorGetArgs): Promise<ExecutorGetResult>;
+}
+
+//
+// Default
+//
+
+let defaultEngine: ExecutorEngine | null = null;
+
+export function getDefaultExecutorEngine(): ExecutorEngine {
+    if (!defaultEngine) {
+        throw new Error('Default executor engine is not set. Please set it using setDefaultExecutorEngine(...)');
+    }
+    return defaultEngine;
+}
+
+export function setDefaultExecutorEngine(engine: ExecutorEngine) {
+    defaultEngine = engine;
 }
