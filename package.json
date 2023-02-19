@@ -1,6 +1,6 @@
 {
   "name": "@tact-lang/runtime",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "repository": "https://github.com/tact-lang/tact-runtime.git",
   "author": "Steve Korshakov <steve@korshakov.com>",
